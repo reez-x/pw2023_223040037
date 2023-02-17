@@ -1,7 +1,3 @@
-<?php 
-$nama = "Rizky";
-$mata_kuliah = "Pemrograman Web";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
