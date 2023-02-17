@@ -13,19 +13,25 @@ $mata_kuliah = "Pemrograman Web";
 <body>
 <table border="1" cellspacing="0" cellpadding="5">
 <tr>
-<td>1,1</td>
-<td colspan="2">colspan = 2</td>
-</tr>
-<tr>
-<td>2,1</td>
-<td>2,2</td>
-<td>2,3</td>
-</tr>
-<tr>
-<td>3,1</td>
-<td>3,2</td>
-<td>3,3</td> 
-</tr>
+<td>1 </td>
 </table>
+<table border="1" cellspacing="0" cellpadding="5">
+<tr>
+<td>2 </td>
+<td>2 </td>
+</table>
+<table border="1" cellspacing="0" cellpadding="5">
+<tr>
+<td>3 </td>
+<td>3 </td>
+<td>3 </td>
+</table>
+<style>
+    td{
+    background-color : cyan;
+    width: 20px;
+    text-align: center;
+    }
+</style>
 </body>
 </html>
