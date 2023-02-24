@@ -2,8 +2,6 @@
 $depan="Rizky";
 $belakang="Abdurrahman";
 $jml_angka = 100;
-$angkot_rusak = 4;
-
 
 $no_angka =1;
 while ($no_angka <= $jml_angka ){
