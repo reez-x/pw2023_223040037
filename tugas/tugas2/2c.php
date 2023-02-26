@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tugas2</title>
+    <title>Tugas 2c</title>
 </head>
 <body>
 
