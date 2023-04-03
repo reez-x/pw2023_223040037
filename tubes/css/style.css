@@ -1,0 +1,256 @@
+*{
+    /* margin: 0;
+    padding: 0;
+    box-sizing: border-box; */
+    
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    text-decoration-style: none;
+}
+
+:root{
+    /* --bg-color: #10101a;
+    --main-color: #2fbf71; 
+    --2nd-main-color: #0c6627;
+    --3rd-main-color: #021f08; */
+    --bg-color: #10101a;
+    --main-color: #c80000; 
+    --2nd-main-color: #660c0c;
+    --3rd-main-color: #161616;
+    --black: #000000;
+    --text-color: #fff; 
+    --big-font: 5rem;
+    --h2-font: 1.9rem;
+    --p-font: 1rem;
+
+}
+
+body{
+    /* background: #f9f9f9;
+    min-height: 100vh;
+    overflow-x: hidden; */
+    background: #d7d7d7; 
+    color: var(--text-color);
+    min-height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 14%;
+    transition: .3s;
+}
+
+.logo{
+    color: var(--text-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+span{
+    color: var(--main-color);
+}
+
+
+
+#menu-icon{
+    font-size: 28px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none;
+}
+
+/* Experiment navbar */
+
+nav{
+	position: relative;
+    text-align: center;
+   
+	width: 470px;
+	height: 50px;
+	background: var(--3rd-main-color);
+	border-radius: 8px;
+	font-size: 0;
+	box-shadow: 0 2px 3px 0 rgba(0,0,0,.1);
+}
+nav a{
+	font-size: 15px;
+	text-transform: uppercase;
+	color: white;
+	text-decoration: none;
+	line-height: 50px;
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+}
+nav .animation{
+	position: absolute;
+	height: 100%;
+	/* height: 5px; */
+	top: 0;
+	/* bottom: 0; */
+	z-index: 0;
+	background: var(--main-color);
+	border-radius: 8px;
+	transition: all .5s ease 0s;
+}
+nav a:nth-child(1){
+	width: 100px;
+}
+nav .start-home, a:nth-child(1):hover~.animation{
+	width: 100px;
+	left: 0;
+}
+nav a:nth-child(2){
+	width: 110px;
+}
+nav a:nth-child(2):hover~.animation{
+	width: 110px;
+	left: 100px;
+}
+nav a:nth-child(3){
+	width: 100px;
+}
+nav a:nth-child(3):hover~.animation{
+	width: 100px;
+	left: 210px;
+}
+nav a:nth-child(4){
+	width: 160px;
+}
+nav a:nth-child(4):hover~.animation{
+	width: 160px;
+	left: 310px;
+}
+/* end navbar */
+
+/* Home */
+.parallax{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/home/bg-gunung.jpg);
+    background-size: cover;
+}
+#text{
+    position: absolute;
+    font-size: 5em;
+    color: var(--main-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,.2);
+    /* z-index: 1000; */
+    /* z-index: 1000;
+    text-align: center;
+    padding-top: 40vh;
+    color: var(--main-color);
+    font-size: 100px; */
+
+}
+.parallax img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+.awan2{
+    height: auto;
+    width: 100px;
+}
+.awan1{
+    left: 10px;
+}
+.sec{
+    position: relative;
+    background: var(--main-color);
+    padding: 100px;
+}
+.about{
+    /* background: var(--main-color);
+    position: relative;
+    padding: 100px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    height: 300px;
+    z-index: 1001; */
+    /* height: 100vh; */
+}
+.sec2{
+    z-index: 1002;
+    background: #fff;
+    position: relative;
+}
+.sec3{
+    background: #fff;
+    z-index: 1003;
+    position: relative;
+    height: 100vh;
+    color: #161616;
+    
+}
+.wave{
+    background: #fff;
+}
+
+
+/* End Home */
+
+@media (max-width: 830px){
+    header{
+        position: fixed;
+        top: -120px;   
+    }
+    #menu-icon{
+        display: block;
+        position: absolute;
+        right: 10%;
+    }
+    nav{
+        position: relative;
+        height: 100%;
+        top: -510px;
+        left: -200px;
+        transition: .2s ease;
+    }
+    nav a{
+        border-left: 2px soli var(--main-color);
+        margin: .5rem;
+        color: var(--text-color);
+        font-weight: 00;
+        width: 100%;
+
+    }
+    nav.active{
+        top: 160px;
+
+    }
+    
+    nav a:hover{
+        background: var(--main-color);
+        border-radius: 10px;
+        transition: 0.3s;
+        width: 190px;
+        position: relative;
+    }
+    nav .animation{
+        display: none;
+    }
+}
