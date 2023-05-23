@@ -5,6 +5,8 @@
   <h1>Halaman Home</h1>
 
   <h3>Daftar Mahasiswa</h3>
+
+  <a href="tambah.php" class="btn btn-primary">Tambah data mahasiswa</a>
   <!-- <?php foreach ($students as $student) : ?>
     <ul>
       <li>Nama: <?= $student["nama"]; ?></li>

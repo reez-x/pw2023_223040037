@@ -1,5 +1,21 @@
 <?php
-define('BASE_URL', '/pw2023_223040037/kuliah/pertemuan11/');
+define('BASE_URL', '/pw2023_223040037/kuliah/pertemuan12/');
+
+function koneksi(){
+  $conn = mysqli_connect('localhost', 'root', '', 'pw2023_223040037') or die('Koneksi ke database gagal');
+  return $conn;
+}
+
+function query($query){
+  $conn = koneksi();
+  $result = mysqli_query($conn, $query);
+
+  $rows = [];
+  while($row = mysqli_fetch_assoc($result)){
+  $rows[] = $row;
+  };
+  return $rows;
+}
 
 function dd($value)
 {
