@@ -44,8 +44,8 @@
       <td><?= $student["email"];?></td>
       <td><?= $student["jurusan"]; ?></td>
       <td>
-        <a href="">ubah</a> |
-        <a href="">hapus</a>
+        <a href="ubah.php?id=<?= $student['id']?>">ubah</a> |
+        <a href="hapus.php?id=<?= $student['id']?>" onclick="return confirm('yakin?')">hapus</a>
       </td>
     </tr>
     <?php endforeach; ?>

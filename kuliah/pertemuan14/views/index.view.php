@@ -7,6 +7,19 @@
   <h3>Daftar Mahasiswa</h3>
 
   <a href="tambah.php" class="btn btn-primary">Tambah data mahasiswa</a>
+
+  <div class="row">
+    <div class="col-md-6">
+      <form action="">
+      <div class="input-group my-3">
+          <input type="text" name="keyword" class="form-control" placeholder="Search Student" autofocus autocomplete="off">
+          <button class="btn btn-primary" type="submit" id="button-addon2" name="search" id="search-button">Search</button>
+       </div>
+      </form>
+    </div>
+  </div>
+
+
   <!-- <?php foreach ($students as $student) : ?>
     <ul>
       <li>Nama: <?= $student["nama"]; ?></li>
@@ -17,8 +30,11 @@
   <?php endforeach; ?>
 </div> -->
 
-<?php require('partials/footer.php'); ?>
 
+
+
+<div class="search-container">
+<?php if ($students):?>
 <table class="table">
   <thead>
 <tr>
@@ -44,11 +60,23 @@
       <td><?= $student["email"];?></td>
       <td><?= $student["jurusan"]; ?></td>
       <td>
-        <a href="">ubah</a> |
-        <a href="">hapus</a>
+        <a href="ubah.php?id=<?= $student['id']?>">ubah</a> |
+        <a href="hapus.php?id=<?= $student['id']?>" onclick="return confirm('yakin?')">hapus</a>
       </td>
     </tr>
     <?php endforeach; ?>
 
   </tbody>
 </table>
+<?php else : ?>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="alert alert-danger" role="alert">
+        Student not found!
+      </div>
+    </div>
+  </div>
+<?php endif ;?>
+</div>
+
+<?php require('partials/footer.php'); ?>
