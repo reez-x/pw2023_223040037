@@ -1,0 +1,5 @@
+@media print{
+    .aksi{
+        display: none;
+    }
+}
