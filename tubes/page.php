@@ -1,15 +1,38 @@
 <?php
 session_start();
+require 'functions.php';
 if( !isset($_SESSION["login"])){
     header("location: login.php");
     exit;
   }
+  // ...
 
-  $kategori = $_GET['kategori'];
-  $conn = mysqli_connect("localhost", "root", "", "tubespw");
-  $sql = "SELECT * FROM news WHERE kategori = '$kategori' ORDER BY id DESC";
-  $items = $conn->query($sql);
+    $kategori = $_GET['kategori'];
+    $sql = "SELECT * FROM news WHERE kategori = '$kategori' ORDER BY id DESC";
+    $items = $conn->query($sql);
+
+if (isset($_GET['search'])) {
+
+    $keyword = $_GET['keyword'];
+    $query = "SELECT * FROM 
+            news   
+        WHERE  
+            judul LIKE '%$keyword%' OR 
+            deskripsi LIKE '%$keyword%'OR
+            konten LIKE '%$keyword%'
+
+        ";
+
+        $items = $conn->query($query);
+
+}
+
+// ...
+
   
+  
+//   $sql = "SELECT * FROM news WHERE kategori = '$kategori' ORDER BY id DESC";
+//   $items = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,10 +91,9 @@ if( !isset($_SESSION["login"])){
     <?php
     include "navbar.php";
     ?>
-    
+    <div class="gapnavbar"></div>
     <!-- Search -->
     <!-- <input type="text" name="keyword" id="keyword" style="margin-top: 100px;"> -->
-
     <div id="berita">
         <section class="news">
             <div class="news-wrap">
@@ -80,10 +102,13 @@ if( !isset($_SESSION["login"])){
                         <h1 class="kategori"><?= $kategori ?></h1>
                         <div class="search_wrap search_wrap_5">
                             <div class="search_box">
-                                <input type="text" class="input" placeholder="search..." id="keyword">
+                            <form action="" method="get">
+                                <input type="hidden" name="kategori" value="<?= $kategori ?>">
+                                <input type="text" class="input" placeholder="search..." id="keyword" name="keyword">
                                 <div class="btn">
-                                    <p>Search</p>
+                                    <button name="search" type="submit">Search</button>
                                 </div>
+                            </form>
                             </div>
                             <div id="searchResult"></div>
                         </div>
@@ -126,9 +151,13 @@ if( !isset($_SESSION["login"])){
             </div>
         </section>
     </div>
+    <?php require 'footer.php'; ?>
+    </body>
+</html>
     <script>
     var keywordInput = document.getElementById("keyword");
     var searchBox = document.querySelector(".search_box");
+    
 
     keywordInput.addEventListener('input', function() {
         if (keywordInput.value.trim() !== "") {
@@ -142,6 +171,7 @@ if( !isset($_SESSION["login"])){
     <script>
     var keywordInput = document.getElementById("keyword");
     var searchResult = document.getElementById("searchResult");
+    var kategori = '<?php echo $_GET['kategori']; ?>';
 
     keywordInput.addEventListener('keyup', function() {
         var keyword = keywordInput.value;
@@ -153,7 +183,8 @@ if( !isset($_SESSION["login"])){
             }
         }
 
-        xhr.open('GET', 'dropdown.php?keyword=' + encodeURIComponent(keyword), true);
+        xhr.open('GET', 'dropdown.php?keyword=' + encodeURIComponent(keyword) + '&kategori=' + encodeURIComponent(kategori), true);
+
         xhr.send();
 
         // Menampilkan atau menyembunyikan searchResult
@@ -165,5 +196,4 @@ if( !isset($_SESSION["login"])){
     });
 </script>
 
-</body>
-</html>
+
